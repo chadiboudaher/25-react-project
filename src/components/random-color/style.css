@@ -1,0 +1,17 @@
+button {
+  border: none;
+  padding: 10px 12px;
+  margin-right: 2rem;
+  margin-top: 1rem;
+  color: blue;
+  border-radius: 9px;
+  background: whitesmoke;
+  transition: all 0.5s ease-in-out;
+}
+
+button:hover {
+  color: whitesmoke;
+  border-radius: 9px;
+  background: blue;
+  transform: translateY(-2px);
+}
