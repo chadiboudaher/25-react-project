@@ -25,11 +25,20 @@ export default function Accordian() {
 
     setMultiple(cpyMultiple);
   }
+
+  function resetAllSelected() {
+    if (enableMultiSelection) {
+      setMultiple([]);
+    } else {
+      setSelected(null);
+    }
+  }
   return (
     <div className="wrapper">
       <button onClick={() => setEnableMultiSelection(!enableMultiSelection)}>
         {enableMultiSelection ? "Enable Single" : "Enable MultiSelection"}
       </button>
+      <button onClick={resetAllSelected}>Reset All</button>
       <div className="accordian">
         {data && data.length > 0 ? (
           data.map((dataItem) => (
