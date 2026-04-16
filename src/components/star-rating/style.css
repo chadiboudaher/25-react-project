@@ -1,5 +1,6 @@
 .active {
-  color: #fff700;
+  color: gold;
+  transition: 0.2s;
 }
 
 .inactive {

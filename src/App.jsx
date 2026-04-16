@@ -1,9 +1,11 @@
+import { useState } from "react";
 import "./App.css";
 import Accordian from "./components/accordian";
 import RandomColor from "./components/random-color";
 import StarRating from "./components/star-rating";
 
 function App() {
+  const [rating, setRating] = useState(0);
   return (
     <div className="App">
       {/* Accordian component */}
@@ -11,7 +13,7 @@ function App() {
       {/* Random Color Generator */}
       {/* <RandomColor /> */}
       {/* Start Rating */}
-      <StarRating noOfStars={10} />
+      <StarRating value={rating} onChange={setRating} />
     </div>
   );
 }
