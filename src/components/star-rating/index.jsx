@@ -18,17 +18,29 @@ export default function StarRating({ value, onChange, noOfStars = 5 }) {
     setHover(0);
   }
 
+  function handleMouseMove(event, index) {
+    const { offsetX } = event.nativeEvent;
+    const target = event.currentTarget;
+
+    const percent = offsetX / target.offsetWidth;
+
+    const newValue = percent < 0.5 ? index - 0.5 : index;
+    setHover(newValue);
+  }
+  //   useEffect(() => handleMouseMove, []);
+
   return (
     <div className="star-rating">
       {[...Array(noOfStars)].map((_, index) => {
-        index += 1;
+        const startValue = index + 1;
         return (
           <FaStar
             key={index}
-            className={index <= (hover || value) ? "active" : "inactive"}
-            onClick={() => onChange(index)}
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={() => handleMouseLeave(index)}
+            className={startValue <= (hover || value) ? "active" : "inactive"}
+            onClick={() => onChange(hover || startValue)}
+            onMouseEnter={() => handleMouseEnter(startValue)}
+            onMouseLeave={handleMouseLeave}
+            onMouseMove={(e) => handleMouseMove(e, startValue)}
             size={40}
           />
         );
