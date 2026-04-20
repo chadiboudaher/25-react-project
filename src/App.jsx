@@ -1,5 +1,5 @@
 // import { useState } from "react";
-import "./App.css";
+// import "./App.css";
 import Accordian from "./components/accordian";
 import ImageSlider from "./components/image-slider";
 import LoadMoreData from "./components/load-more-button";
